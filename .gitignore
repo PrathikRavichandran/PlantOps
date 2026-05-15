@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# Vector store (rebuild with: python ingest.py)
+chroma_db/
+
+# Feedback database
+feedback.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Streamlit
+.streamlit/secrets.toml
