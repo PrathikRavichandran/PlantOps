@@ -20,9 +20,9 @@ load_dotenv()
 
 @st.cache_resource
 def get_anthropic_client() -> anthropic.Anthropic:
-    api_key = os.getenv("ANTHROPIC_API_KEY")
+    api_key = os.getenv("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY")
     if not api_key:
-        st.error("ANTHROPIC_API_KEY not found. Create a .env file with your key.")
+        st.error("ANTHROPIC_API_KEY not found. Set it in Streamlit Cloud → Settings → Secrets, or in a local .env file.")
         st.stop()
     return anthropic.Anthropic(api_key=api_key)
 
