@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "PowerShell(cd \"C:\\\\Users\\\\LENOVO 822\\\\plantops\\\\PlantOps\"; Get-Content .gitignore -ErrorAction SilentlyContinue; Write-Host \"---SIZE---\"; [math]::Round\\(\\(Get-ChildItem -Recurse chroma_db | Measure-Object -Property Length -Sum\\).Sum / 1MB, 2\\))"
     ]
   }
 }
