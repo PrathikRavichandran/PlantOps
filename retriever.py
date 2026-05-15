@@ -20,10 +20,19 @@ def get_collection():
     global _collection, _all_chunks
     if _collection is None:
         client = chromadb.PersistentClient(path=CHROMA_PATH)
-        _collection = client.get_collection(
-            name=COLLECTION_NAME,
-            embedding_function=DefaultEmbeddingFunction(),
-        )
+        try:
+            _collection = client.get_collection(
+                name=COLLECTION_NAME,
+                embedding_function=DefaultEmbeddingFunction(),
+            )
+        except Exception:
+            # First-run (or fresh cloud deploy): build the index from ./data PDFs.
+            from ingest import main as build_index
+            build_index()
+            _collection = client.get_collection(
+                name=COLLECTION_NAME,
+                embedding_function=DefaultEmbeddingFunction(),
+            )
         _all_chunks = _load_all_chunks(_collection)
     return _collection
 

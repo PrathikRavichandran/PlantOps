@@ -1,9 +1,12 @@
 # Environment
 .env
-
+.env.local
 
 # Feedback database
 feedback.db
+
+# Vector store (rebuilt on first run via ingest.py / app startup)
+chroma_db/
 
 # Python
 __pycache__/
@@ -19,3 +22,7 @@ env/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db

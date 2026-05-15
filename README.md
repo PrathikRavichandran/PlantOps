@@ -155,9 +155,9 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 > The `.env` file is listed in `.gitignore` and will never be committed.
 
-### 4. Ingest the documents
+### 4. Ingest the documents (optional — auto-runs on first launch)
 
-This step parses all PDFs, splits them into chunks, generates embeddings, and stores everything in a local ChromaDB database. Run it once — or again any time the PDFs change.
+This step parses all PDFs, splits them into chunks, generates embeddings, and stores everything in a local ChromaDB database. The app **auto-runs ingestion the first time you launch it** if `chroma_db/` doesn't exist, so you can usually skip this step. Run it manually only when you want to pre-build the index, or after changing PDFs:
 
 ```bash
 python ingest.py
